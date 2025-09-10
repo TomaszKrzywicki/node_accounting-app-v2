@@ -215,7 +215,7 @@ function createServer() {
       return;
     }
 
-    // Zmienione: brak użytkownika zwraca 400 zamiast 404
+    // tests requires 400 not 404
     const userExists = users.some((u) => u.id === Number(userId));
 
     if (!userExists) {
