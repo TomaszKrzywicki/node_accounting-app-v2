@@ -167,6 +167,8 @@ function createServer() {
   app.post('/expenses', (req, res) => {
     const { userId, spentAt, title, amount, category, note } = req.body || {};
 
+    // tests requires send400 not send404 for user not found
+
     if (userId === undefined) {
       send400(res, 'userId is required');
 
@@ -215,7 +217,7 @@ function createServer() {
       return;
     }
 
-    // tests requires 400 not 404
+    // tests requires send400 not send404 for user not found
     const userExists = users.some((u) => u.id === Number(userId));
 
     if (!userExists) {
